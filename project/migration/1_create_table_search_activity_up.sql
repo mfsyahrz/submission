@@ -4,5 +4,5 @@ CREATE TABLE IF NOT EXISTS search_activity (
 	success       BOOLEAN NOT NULL,
 	message 	  VARCHAR(255) NOT NULL,
 	json_data 	  TEXT,
-	request_dt    TIMESTAMP,
+	request_dt    TIMESTAMP
   );

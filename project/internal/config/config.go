@@ -5,9 +5,9 @@ import (
 	"github.com/joho/godotenv"
 )
 
-func New() (*Config, error) {
+func New(envFile string) (*Config, error) {
 
-	_ = godotenv.Load()
+	_ = godotenv.Load(envFile)
 
 	config := Config{}
 	if err := envdecode.Decode(&config); err != nil {
