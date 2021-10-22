@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:13.2-alpine
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=p@5sW0rd
+      - POSTGRES_DB=sb
+    ports:
+      - 5432:5432
+    networks:
+      - sb
+
+volumes:
+  storage:
+
+networks:
+  sb:
