@@ -76,10 +76,7 @@ func (h *MovieHandler) GetMovieDetail(c echo.Context) error {
 	)
 	if err != nil {
 		resp.Message = err.Error()
-		return c.JSON(http.StatusInternalServerError,
-			map[string]string{
-				"error": err.Error(),
-			})
+		return c.JSON(http.StatusInternalServerError, resp)
 	}
 
 	resp.Success = true
