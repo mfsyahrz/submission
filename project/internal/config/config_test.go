@@ -36,9 +36,13 @@ func TestNew(t *testing.T) {
 				Name:            "postgre_name",
 				Port:            "postgre_port",
 				Host:            "postgre_host",
-				MaxOpenConns:    "postgre_maxOpen",
-				MaxConnLifetime: "postgre_maxConn",
-				MaxIdleLifetime: "postgre_maxIdle",
+				MaxOpenConns:    50,
+				MaxConnLifetime: 10,
+				MaxIdleLifetime: 5,
+			},
+			OMDB: OMDB{
+				Host:   "https://www.omdbapi.com",
+				APIKey: "faf7e5bb",
 			},
 		}
 

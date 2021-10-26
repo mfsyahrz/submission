@@ -1,4 +1,11 @@
-proto:
-	protoc --go_out=. --go_opt=paths=source_relative \
-    --go-grpc_out=. --go-grpc_opt=paths=source_relative \
-    handler.proto
+.PHONY: mock
+mock:
+	bin/mock-generator.sh
+
+.PHONY: tidy
+tidy:
+	go mod tidy
+
+.PHONY: run
+run:
+	go run main.go

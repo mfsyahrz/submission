@@ -3,7 +3,9 @@ module github.com/mfsyahrz/submission/project
 go 1.17
 
 require (
+	github.com/DavidHuie/gomigrate v0.0.0-20190826182718-4adc4b3de142
 	github.com/go-resty/resty/v2 v2.6.0
+	github.com/golang/mock v1.1.1
 	github.com/jmoiron/sqlx v1.3.4
 	github.com/joeshaw/envdecode v0.0.0-20200121155833-099f1fc765bd
 	github.com/joho/godotenv v1.4.0
@@ -16,7 +18,6 @@ require (
 )
 
 require (
-	github.com/DavidHuie/gomigrate v0.0.0-20190826182718-4adc4b3de142 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/golang/protobuf v1.5.0 // indirect
 	github.com/labstack/gommon v0.3.0 // indirect
