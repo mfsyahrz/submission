@@ -1,3 +1,5 @@
+test_files	= $(shell go list ./... )
+
 .PHONY: mock
 mock:
 	bin/mock-generator.sh
@@ -9,3 +11,13 @@ tidy:
 .PHONY: run
 run:
 	go run main.go
+
+.PHONY: test
+test:
+	go test -v -race $(test_files)
+
+.PHONY: test-coverage
+test-coverage:
+	go test -v -race $(test_files) -coverprofile=coverage.out
+	go tool cover -html=coverage.out -o coverage.html
+	go tool cover -func coverage.out

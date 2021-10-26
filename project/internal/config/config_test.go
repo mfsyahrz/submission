@@ -51,3 +51,13 @@ func TestNew(t *testing.T) {
 		assert.Equal(t, wantConfig, newConfig)
 	})
 }
+
+func TestRestandGRPCAddress(t *testing.T) {
+	t.Run("run", func(t *testing.T) {
+		cfg, err := New("../../test/config/env.test")
+		assert.NoError(t, err)
+
+		cfg.Service.RestAddress()
+		cfg.Service.GrpcAddress()
+	})
+}
