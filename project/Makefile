@@ -21,3 +21,7 @@ test-coverage:
 	go test -v -race $(test_files) -coverprofile=coverage.out
 	go tool cover -html=coverage.out -o coverage.html
 	go tool cover -func coverage.out
+
+.PHONY: docker-compose
+docker-compose:
+	docker-compose up --build
