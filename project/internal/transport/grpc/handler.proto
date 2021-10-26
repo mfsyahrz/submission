@@ -1,0 +1,76 @@
+syntax = "proto3";
+package grpc;
+
+option go_package = "./grpc";
+
+message IdRequest {
+    string id = 1;
+}
+
+message GetRequest {
+    string search = 1;
+    int64 page = 2;
+}
+
+message MoviePagination {
+    string status = 1;
+    string message = 2;
+    MovieMeta data = 3;
+}
+
+message MovieResponse {
+    string status = 1;
+    string message = 2;
+    MovieDetail data = 3;
+}
+
+message MovieMeta {
+    int64 page = 1;
+    string totalResult = 2;
+    repeated Movie list = 3;
+}
+
+message Movie {
+    string title = 1;
+    string year = 2;
+    string imdbId = 3;
+    string type = 4;
+    string poster = 5;
+}
+
+message MovieDetail {
+   string Year = 1;
+   string Rated = 2;
+   string Released = 3;
+   string Runtime = 4;
+   string Genre = 5;
+   string Director = 6;
+   string Writer = 7;
+   string Actors = 8;
+   string Plot = 9;
+   string Language = 10;
+   string Country = 11;
+   string Awards = 12;
+   string Poster = 13;
+   string Metascore = 14;
+   string imdbRating = 15;
+   string imdbVotes = 16;
+   string imdbID = 17;
+   string Type = 18;
+   string DVD = 19;
+   string BoxOffice = 20;
+   string Production = 21;
+   string Website = 22;
+   string Title = 23;
+   repeated MovieRating ratings = 24;
+}
+
+message MovieRating {
+    string Source = 1;
+    string Value = 2;
+}
+
+service MovieService {
+    rpc GetMovie (GetRequest) returns (MoviePagination);
+    rpc GetMovieDetail (IdRequest) returns (MovieResponse);
+}
