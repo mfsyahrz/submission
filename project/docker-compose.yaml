@@ -1,19 +1,45 @@
 version: '3'
 
 services:
-  postgres:
+  pg:
     image: postgres:13.2-alpine
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=p@5sW0rd
-      - POSTGRES_DB=sb
+      - POSTGRES_DB=muv
     ports:
       - 5432:5432
     networks:
-      - sb
+      - muv
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SERVICE_NAME: MuV
+      SERVICE_PORT_REST: 8080
+      SERVICE_PORT_GRPC: 8081
+      POSTGRES_HOST: pg
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: p@5sW0rd
+      POSTGRES_NAME: muv
+      POSTGRES_MAX_OPEN_CONNS: 50
+      POSTGRES_MAX_CONN_LIFETIME: 10
+      POSTGRES_MAX_IDLE_LIFETIME: 5
+      OMDB_HOST: https://www.omdbapi.com
+      OMDB_API_KEY: 938a67e
+    ports:
+      - 8080:8080
+      - 8081:8081
+    networks:
+      - muv
+    depends_on:
+      - pg
 
 volumes:
   storage:
 
 networks:
-  sb:
+  muv:
