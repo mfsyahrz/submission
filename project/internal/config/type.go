@@ -3,6 +3,7 @@ package config
 type Config struct {
 	Service  Service
 	Postgres Postgres
+	OMDB     OMDB
 }
 
 type Service struct {
@@ -21,7 +22,12 @@ type Postgres struct {
 	Name            string `env:"POSTGRES_NAME,required"`
 	Port            string `env:"POSTGRES_PORT,default=5432"`
 	Host            string `env:"POSTGRES_HOST,default=localhost"`
-	MaxOpenConns    string `env:"POSTGRES_MAX_OPEN_CONNS,default=5"`
-	MaxConnLifetime string `env:"POSTGRES_MAX_CONN,default=10m"`
-	MaxIdleLifetime string `env:"POSTGRES_MAX_IDLE,default=5m"`
+	MaxOpenConns    int    `env:"POSTGRES_MAX_OPEN_CONNS,default=5"`
+	MaxConnLifetime int    `env:"POSTGRES_MAX_CONN,default=10"`
+	MaxIdleLifetime int    `env:"POSTGRES_MAX_IDLE,default=5"`
+}
+
+type OMDB struct {
+	Host   string `env:"OMDB_HOST,required"`
+	APIKey string `env:"OMDB_API_KEY,required"`
 }

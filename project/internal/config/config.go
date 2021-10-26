@@ -1,6 +1,8 @@
 package config
 
 import (
+	"fmt"
+
 	"github.com/joeshaw/envdecode"
 	"github.com/joho/godotenv"
 )
@@ -15,4 +17,12 @@ func New(envFile string) (*Config, error) {
 	}
 
 	return &config, nil
+}
+
+func (c *Service) RestAddress() string {
+	return fmt.Sprintf(":%v", c.Port.REST)
+}
+
+func (c *Service) GrpcAddress() string {
+	return fmt.Sprintf(":%v", c.Port.GRPC)
 }
