@@ -13,7 +13,7 @@ MuV (read muvi) is a microservice prototype that incorporates OMDB API to provid
 #### Get Movie By certain search word
 
 #### REST
-```http
+```bash
   GET /movie
 ```
 
@@ -24,7 +24,7 @@ MuV (read muvi) is a microservice prototype that incorporates OMDB API to provid
 
 #### Get Movie Detail By ImdbID
 
-```http
+```bash
   GET /movie/detail
 ```
 
@@ -33,7 +33,7 @@ MuV (read muvi) is a microservice prototype that incorporates OMDB API to provid
 | `imdbID`      | `string` | **Required**. imdbID of the movie |
 
 #### GRPC
-- GRPC specification can refer to file [handler.proto]() inside this project repository
+- GRPC specification can refer to file [handler.proto](https://github.com/mfsyahrz/submission/blob/master/project/internal/transport/grpc/handler.proto) inside this project repository
 
 ## Tech Stack
 
@@ -44,7 +44,7 @@ MuV (read muvi) is a microservice prototype that incorporates OMDB API to provid
 **protocol:** [REST](https://restfulapi.net/), [GRPC](https://grpc.io/).
 
 ## How To Run
-  - Please visit [How To Run]() in which located in docs folder.
+  - Please visit [How To Run](https://github.com/mfsyahrz/submission/blob/master/project/docs/how_to_run.md) which located in docs folder.
 
 ## Authors
 
