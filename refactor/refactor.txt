@@ -1,0 +1,52 @@
+// findFirstStringInBracket original code
+func findFirstStringInBracket(str string) string {
+	if len(str) > 0 {
+		indexFirstBracketFound := strings.Index(str, "(")
+		if indexFirstBracketFound >= 0 {
+			runes := []rune(str)
+			wordsAfterFirstBracket := string(runes[indexFirstBracketFound:len(str)])
+			indexClosingBracketFound := strings.Index(wordsAfterFirstBracket, ")")
+			if indexClosingBracketFound >= 0 {
+				runes := []rune(wordsAfterFirstBracket)
+				return string(runes[1 : indexClosingBracketFound-1])
+			} else {
+				return ""
+			}
+		} else {
+			return ""
+		}
+	} else {
+		return ""
+	}
+	return ""
+}
+
+// findFirstStringInBracket2 , refactored and amended version function of findFirstStringInBracket
+// example of input and output
+// (asdf) -> asd
+// (qwe -> ""
+func findFirstStringInBracket2(wordInput string) string {
+	wordTemp, word := "", ""
+	firstBracketFound := false
+
+	for _, character := range wordInput {
+		if character == '(' {
+			firstBracketFound = true
+			continue
+		}
+		if character == ')' {
+			word = wordTemp
+			break
+		}
+		if firstBracketFound {
+			wordTemp += string(character)
+		}
+	}
+
+	if len(word) == 0 {
+		return ""
+	}
+
+	return word[:len(word)-1]
+
+}
