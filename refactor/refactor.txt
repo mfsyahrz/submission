@@ -21,7 +21,7 @@ func findFirstStringInBracket(str string) string {
 	return ""
 }
 
-// findFirstStringInBracket2 , refactored and amended version function of findFirstStringInBracket
+// findFirstStringInBracket2 , refactored and amended version of function findFirstStringInBracket
 // example of input and output
 // (asdf) -> asd
 // (qwe -> ""
