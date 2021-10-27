@@ -56,3 +56,9 @@
 ```
     make run
 ```
+
+## How To Test
+run this command for running test with coverage
+```
+    make test-coverage
+```
